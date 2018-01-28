@@ -1,0 +1,164 @@
+body{
+    background-image: url("2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#topright{
+    list-style: none;
+   
+}
+
+#navtop{
+    margin: 0 200px;
+    font-size:12px;
+}
+#headnav{
+    margin: 0 200px;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+      width: 100%;
+
+      
+}
+.carousel-control{
+    background-color: transparent;
+}
+#refresh{
+    color: #fbacc2;
+    font-size: 15px;
+}
+#leftmenu{
+    list-style: none;
+    padding:0;
+}
+#bodytop{
+    background-color: #fbeaf4;
+    
+}
+
+/*            ul{
+    -webkit-padding-start: 0px;
+}*/
+#bord{
+    -webkit-padding-start: 0px;
+    border:1px solid transparent;
+}
+#bord:link{
+    -webkit-padding-start: 0px;
+    border-color:red;
+}
+#bord:visited{
+    -webkit-padding-start: 0px;
+    border-color:red;
+}
+#bord:hover{
+    -webkit-padding-start: 0px;
+    border-color:red;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+    height: 45%;
+    }
+
+.listyle{
+    margin-right: 10px;
+    float: left;
+    list-style-type: none;
+}
+.listyle1{
+    margin-right: 10px;
+    float: left;
+    border: 1px solid black;
+    list-style-type: none;
+}
+.rightstyle{
+    margin-top: 10px;
+}
+.navstyle{
+    height: 90px;
+}
+.pp{
+    color:white;
+}
+.ppred{
+    color:red;
+}
+.disli{
+    display: inline;
+}
+
+/*去购买*/
+div.showprice {
+        width: 45%;
+        height: 17%;
+        background-color: #FF435E;
+        position: absolute;
+        left:50%;
+        top:75%;
+    }
+    div.showprice div.buy {
+        position: absolute;
+        right: 0;
+        top:0;
+        height: 100%;
+        width: 80px;
+        background-color: #fef490;
+    }
+
+    div.showprice div.buy::before {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 0;
+        left: -12px;
+        border-top: 15px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-right: 12px solid #fef490;
+    }
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color:blue;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:blue;
+}
+
+a:active {
+    text-decoration: underline;
+}
+.imgsize{
+    width: 15%;
+}
+.lili{
+    padding-top:5%;
+}
+li.lili:hover{
+    background-color: #efdfe4;
+}
+.quan{
+    background-color:#ffe6f2;
+    width:200%;
+    border-style: dotted none dotted none;
+    border-width: 1px;
+    font-size:15px;
+}
+.shopname{
+   font-size:12px;
+   color:#fc7e91;
+    padding-right:0%;"
+}
+.box{
+    height: 400px;
+    resize:both;
+    width:100%;
+}

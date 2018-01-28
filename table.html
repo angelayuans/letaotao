@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery/jquery-1.11.2.js"></script>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="" ng-controller="empcontroller">
+    <br />
+    <br />
+    <table>
+        <tbody> <!-- This table is to enter data-->
+            <tr>
+                <td>Enter ID: </td><td>
+                <input type="text" ng-model="id"/></td>
+            </tr>
+            <tr>
+                <td>Enter Name: </td><td>
+                <input type="text" ng-model="name"/></td>
+            </tr>
+            <tr>
+                <td>Enter Designation: </td><td>
+                <input type="text" ng-model="desg"/></td>
+            </tr>
+            <tr> 
+                <td><input type="button" 
+                ng-click="btnclk()" value="Save"/></td>
+                <td><input type="button" 
+                ng-click="btnupd(id,name,desg)" value="Update"/></td>
+            </tr>
+        </tbody>
+    </table>
+    <table> <!--This table is to display the data-->
+        <thead>
+              <tr>
+                  <td>ID</td>
+                  <td>Name</td>
+                  <td>Designation</td>
+              </tr>
+       </thead>
+        <tbody ng-repeat="emp in emparr">
+            <tr>
+                
+                <td ng-bind="emp.arr_id"></td>
+                <td ng-bind="emp.arr_name"></td>
+                <td ng-bind="emp.arr_desg"></td>
+                <td><input type="button" 
+                ng-click="edit(emp,emparr.indexOf(emp))" value="Edit"/></td>
+                <td><input type="button" 
+                ng-click="del(emparr.indexOf(emp))" value="Delete"/></td>
+            </tr>
+        </tbody>
+    </table> 
+    <script type="text/javascript">
+        $scope.btnclk = function () {
+                if (!$scope.id)
+                {
+                    alert("Enter ID");
+                }
+                else if (!$scope.name)
+                {
+                    alert("Enter Name");
+                }
+                else if (!$scope.desg) {
+                    alert("Enter Designation");
+                }
+                else {
+                $scope.emparr.push({ 'arr_id': $scope.id, 
+            'arr_name': $scope.name, 'arr_desg': $scope.desg });
+                $scope.id = '';
+                $scope.name = '';
+                $scope.desg = '';
+                }
+            };
+    </script>
+</body>
+</html>

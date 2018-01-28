@@ -1,0 +1,410 @@
+<html>
+    <head>
+        <title> LeTaoTao</title>
+        <meta charset = utf-8>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="jquery-3.2.1.js"></script>
+        
+        <script src=angular.min.js></script>
+        
+        <link rel="stylesheet" type="text/css" href="zhuzhu.css">
+    </head>
+    <body ng-app="myModule">
+        <div id="navtop" class="row">
+            <div id="lefttop" class="col-lg-8">
+                <p>亲爱的，来加粉丝分享优惠微信群
+                <img border="0" src="https://img.alicdn.com/imgextra/i1/2508158775/TB2SfmWqFXXXXb4XpXXXXXXXXXX_!!2508158775.png">392585899
+                </p>
+            </div>
+            <div id="rightlist" class="col-lg-4 rightstyle" >
+                <ul id="topright">
+                    <li class="listyle" >
+                        <p>设为首页</p>
+                    </li>
+                    <li class="listyle" >
+                        <p>加入收藏</p>
+                    </li>
+                    <li class="listyle" >
+                        <p onclick="alert("请联系我QQ")">遇到购物问题？联系我></p>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div id="headnav" class="navstyle" class="row" >
+            <div class="col-lg-5">
+                
+                    <h1 style="color:blue">乐淘淘</h1>
+                
+            </div>
+            <div class="col-lg-7">
+                <div class="col-lg-6" style="margin-top:45px">
+                <input type="text" placeholder="搜优惠券" ng-model="searchText" />
+                <button type="sumbit">搜索</button>
+
+                </div>
+                <div class="col-lg-6">
+                    <dt>
+                        <dl></dl>
+                        <dl></dl>
+                        <dl></dl>
+                    </dt>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container-fuild row" id="secondnav" style="height:40px;background-color:#f00582">
+            <ul style="list-style-type: none;">
+                <li style="float:left;margin-left: 200px;margin-right:80px;margin-top:10px">
+                    <p class="pp " >今日上新</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >领券优惠直播</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >超级人气榜</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >特卖精选</p>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="container" id="bodytop" > 
+            <div class="col-sm-3">
+                <ul id="leftmenu">
+                    <li><p>服装</p></li>
+                    <li><p>母婴</p></li>
+                    <li><p>化妆品</p></li>
+                    <li><p>居家、日用</p></li>
+                    <li><p>鞋包、配饰</p></li>                    
+                    <li><p>美食</p></li>
+                    <li><p>文体、车品</p></li>
+                    <li><p>数码、家电</p></li>      
+                </ul>
+            </div>
+            <div class="col-sm-5">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox" ng-controller="myController">
+                    
+                    <div class="item active" >
+                        <a href="{{employee[7].coupon_link}}">
+                        <img src="{{employees[7].img}}" alt="Chania" width="80" height="400">
+                        </a>
+                    </div>
+
+                    <div class="item" ng-repeat="employee in employees">
+                        <a href="{{employees[10].coupon_link}}">
+                        <img src="{{employee[s10].img}}" alt="Chania" width="80" height="345">
+                        </a>
+                    </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>“亲亲，喜欢我们吗”</h3>
+                分享给身边朋友一起抢优惠<br>
+                超人气榜<br>
+                发现最受欢迎
+            </div>
+        </div>
+        <div class="container">
+            <h3>秒杀精选&nbsp&nbsp<span id="refresh">/实时更新/独享优惠券</span></h3>
+        </div>
+        <div class="container" ng-controller="myController">
+            
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" >
+                    
+                    <div >
+                        <img class="col-sm-6" src="{{employees[1].img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div  style="padding-top:50px">
+                        <p class="col-sm-6">{{employees[1].name}}</p>
+                        <p class="col-sm-6">{{employees[1].price}}</p>
+                        <p class="col-sm-6">优惠券总数 <span class="ppred">{{employees[1].volume}}</span> 张</p>
+                        
+                        <button style="background-color:red;"><a href="{{employees[1].coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                    </div>                        
+                </div> 
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" >
+                    
+                    <div >
+                        <img class="col-sm-6" src="{{employees[17].img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div  style="padding-top:50px">
+                        <p class="col-sm-6">{{employees[17].name}}</p>
+                        <p class="col-sm-6">{{employees[17].price}}</p>
+                        <p class="col-sm-6">优惠券总数 <span class="ppred">{{employees[17].volume}}</span> 张</p>
+                        
+                        <button style="background-color:red;"><a href="{{employees[17].coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                    </div>                        
+                </div>           
+        </div>
+        <br>
+        <div class="container" ng-controller="myController">
+            
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" >
+                    
+                    <div >
+                        <img class="col-sm-6" src="{{employees[10].img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div  style="padding-top:50px">
+                        <p class="col-sm-6">{{employees[10].name}}</p>
+                        <p class="col-sm-6">{{employees[10].price}}</p>
+                        <p class="col-sm-6">优惠券总数 <span class="ppred">{{employees[10].volume}}</span> 张</p>
+                        
+                        <button style="background-color:red;"><a href="{{employees[10].coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                    </div>                        
+                </div> 
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" >
+                    
+                    <div >
+                        <img class="col-sm-6" src="{{employees[12].img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div  style="padding-top:50px">
+                        <p class="col-sm-6">{{employees[12].name}}</p>
+                        <p class="col-sm-6">{{employees[12].price}}</p>
+                        <p class="col-sm-6">优惠券总数 <span class="ppred">{{employees[12].volume}}</span> 张</p>
+                        <button style="background-color:red;"><a href="{{employees[12].coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                    </div>                        
+                </div>           
+        </div>
+        <br>
+        <div class="container" ng-controller="myController">
+            
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" >
+                    
+                    <div >
+                        <img class="col-sm-6" src="{{employees[5].img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div  style="padding-top:50px">
+                        <p class="col-sm-6">{{employees[5].name}}</p>
+                        <p class="col-sm-6">{{employees[5].price}}</p>
+                        <p class="col-sm-6">优惠券总数 <span class="ppred">{{employees[5].volume}}</span> 张</p>
+                        
+                        <button style="background-color:red;"><a href="{{employees[5].coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                    </div>                        
+                </div> 
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" >
+                    
+                    <div >
+                        <img class="col-sm-6" src="{{employees[16].img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div  style="padding-top:50px">
+                        <p class="col-sm-6">{{employees[16].name}}</p>
+                        <p class="col-sm-6">{{employees[16].price}}</p>
+                        <p class="col-sm-6">优惠券总数 <span class="ppred">{{employees[16].volume}}</span> 张</p>
+                        
+                        <button style="background-color:red;"><a href="{{employees[16].coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                    </div>                        
+                </div>           
+        </div>
+        
+        <div class="container">
+            <h3>领券优惠直播</h3>
+        </div>
+        <div class="container" ng-controller="myController">
+          <div class="col-sm-3" style="padding-left:0px;" ng-repeat="employee in employees | filter:searchText">
+            <div   id="bord">      
+                        <img src="{{employee.img}}" alt="" height="200" >
+                        <h2 class="ppred">{{employee.price}}<span style="font-size:13px;">券后价</span></h2>
+                        <p>{{employee.name}}</p>
+                        <p>销量 {{employee.volume}}</p>
+                        <button style="background-color:red;"><a href="{{employee.coupon_link}}"><p class="pp">点击抢购<p></a></button>
+                        <br><br>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+var app = angular
+                  .module("myModule",[])
+                  .controller("myController",function($scope){
+                              var employees = [
+      
+      { name: "iphone4手机壳硅胶苹果4s保护套透明新款薄外壳全包软防摔撞男女",
+      img: "https://img.alicdn.com/tfscom/i2/2225516821/TB1miLhdkfb_uJkSnfoXXb_epXa_!!0-item_pic.jpg",
+      price: "3.90",
+      price1: "",
+      volume: "113",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DXysNR7vYxSwcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYO54feA1RG9rWSEawZeaaLta9%2BZGygAjgUAd2CuKAkMmg8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:""},
+      { name: "水星电热毯单人防水调温加厚双控电褥子学生宿舍辐射无舒适棉安全",
+      img: "https://img.alicdn.com/tfscom/i1/2963925030/TB13tppX0LO8KJjSZPcXXaV0FXa_!!0-item_pic.jpg",
+      price: "49.90",
+      price1: "劵价：满48元减15元",
+      volume: "7670",
+      coupon_total_count: "20000",
+      link:" ",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=NXzbvtP5RDYGQASttHIRqZhDwzyRrj3mi41fT6Z%2FIBfO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhDd2Naqom0e0"},
+      { name: "李宁卫衣男士运动生活系列套头衫长袖圆领针织运动服AWDL313",
+      img: "https://img.alicdn.com/tfscom/i2/613968296/TB1YMJHXdfJ8KJjy0FeXXXKEXXa_!!0-item_pic.jpg",
+      price: "119.00",
+      price1: "劵价：满11元减10元",
+      volume: "118",
+      coupon_total_count: "100000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DjAqi868avDccQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYPTSVuP6OIbhGS%2FicCw%2FYFTeGzhr37fn4ax9V%2FjWaVIxhQwOXQToZKyxgxdTc00KD8%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=NwyB8m6CRgAGQASttHIRqcE3YN45Un2Hcx3kpildtULO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "韩版加厚磨毛四件套床裙式床罩大红婚庆床上用品1.5m1.8米床秋冬",
+      img: "https://img.alicdn.com/tfscom/i2/1794429961/TB1WqMjcC_I8KJjy0FoXXaFnVXa_!!0-item_pic.jpg",
+      price: "118.00",
+      price1: "劵价：",
+      volume: "26",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3Dq57Weq6VKdkcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYO1NOlc3ijahPwYDI9JT%2BqVhwUUG201TPHx2oZNKBwEvQ8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:""},
+      { name: "纪念币纸币收藏册竹节背活页册空册集邮册标准内页硬币内页送备件",
+      img: "https://img.alicdn.com/tfscom/i4/TB17lGHNFXXXXXUaXXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "158.00",
+      price1: "劵价：满129元减10元",
+      volume: "11",
+      coupon_total_count: "1000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DV8zF56%2FMwJkcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYM7oU0bjHsWZIVMz5GWUIWgoJEG5MTgFIzphdJxseILaA8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=P%2FQyyZMDtqUGQASttHIRqfe%2FlRHpp%2Fzib73o5plA7SnO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "航天钞纪念币收藏册竹节背活页册集邮票册标准内册硬币内册邮册",
+      img: "https://img.alicdn.com/tfscom/i3/TB1KYinNVXXXXbxXFXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "138.00",
+      price1: "劵价：满99元减5元",
+      volume: "3",
+      coupon_total_count: "1000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DhqLrastSrtYcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYPQiTZzNAKR6S9Q3hY5NsBLWvp1vMO7DhxGJdzmgbKC1w8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=V4aJYXzBxowGQASttHIRqTcOGHUq9n2ZgOuf3yy7t47O4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "天津正宗狗不理 三鲜包子百年手工包美味健康早餐店长推荐",
+      img: "https://img.alicdn.com/tfscom/i3/1882156885/TB1W.33dtHO8KJjSZFtXXchfXXa_!!0-item_pic.jpg",
+      price: "32.90",
+      price1: "劵价：满20元减3元",
+      volume: "257",
+      coupon_total_count: "9999",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DoO5O1KZAvJUcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYMwsCF7FQdyCo7WrfnfRdfbxReAuuwT2KU6dylUW3TEOy5uyBrvHFsmFetIKDswf8IhhQs2DjqgEA%3D%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=hNd5ViHouvIGQASttHIRqWjc1Vdzm3vjT97Pm9K7NsbO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhDd2Naqom0e0"},
+      { name: "richdays渔吧芒果干500g/1斤果脯零食芒果条水果干散装批发芒果片",
+      img: "https://img.alicdn.com/tfscom/i2/1793435617/TB1I2tNif6H8KJjSspmXXb2WXXa_!!0-item_pic.jpg",
+      price: "33.80",
+      price1: "劵价：",
+      volume: "95",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DWwcgxrLEsxwcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYNRPhScRfw10v7CD0%2BaLC%2BALcyquKlvN8ATtBLzKXSSlw8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:""},
+      { name: "俏美人果冻口红持久保湿不脱色不沾杯防水学生款可爱非韩国小样",
+      img: "https://img.alicdn.com/tfscom/i3/2935189218/TB1fBlllSfD8KJjSszhXXbIJFXa_!!0-item_pic.jpg",
+      price: "39.90",
+      price1: "劵价：",
+      volume: "1189",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DRIQex%2BGzCLUcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYOo%2BD0QB62IW69ft6EBPzoBxReAuuwT2KVc1gK9qvRJSKjU%2BIFJj2iRFetIKDswf8IhhQs2DjqgEA%3D%3D&unid=3456",
+      coupon_link:""},
+      { name: "全棉被套单件单人学生加厚珊瑚绒法兰绒被套双人加绒保暖被罩纯棉",
+      img: "https://img.alicdn.com/tfscom/i1/717981972/TB194nKchPI8KJjSspfXXcCFXXa_!!0-item_pic.jpg",
+      price: "73.00",
+      price1: "劵价：满4元减1元",
+      volume: "27",
+      coupon_total_count: "10000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3D1uc3N54uX1McQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYP4oEdcFVAnzK%2FgABgA4FNFlPtwXDIh%2BdNXhQXYuj4m1BusOAwohDCzEyJOstYkYGjGJe8N%2FwNpGw%3D%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=qDb4tgAoaaBD6TM1M2v5G2wyKZcQ3m3MDCgGVQfen%2F%2BTsu%2B7tqQG7QJClA%2BEGtw3vSqfYdwW%2FAPFeipFNkv7v5Q5wfGz%2Fu%2BNVVrXKvU%2BpyQGmY4hFfhtzBlqjQc7%2B9fT"},
+      { name: "豪华纸币活页册钱币收藏册纸币人民币收藏册纪念币硬币收藏册",
+      img: "https://img.alicdn.com/tfscom/i1/TB1FczJOXXXXXbCXXXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "88.00",
+      price1: "劵价：满49元减5元",
+      volume: "4",
+      coupon_total_count: "10000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DhGQ1dExiYJ0cQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYMsSuh1qP%2BKIJfSq1CXnBBUSIPOwcdLu5CqxIMM7RATcg8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=ijPqezHQLQAGQASttHIRqUcb%2FHeC3r9nFOxBlt5GY%2BLO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "墙纸自粘墙贴卡通儿童房间装饰品贴画学校幼儿园教室墙壁布置贴纸",
+      img: "https://img.alicdn.com/tfscom/i4/TB1I7yHMVXXXXbnXVXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "15.90",
+      price1: "劵价：",
+      volume: "51",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3Dm3vM5RxQcAocQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYNtPBCQNNHUiC65ZQHOaVT1jEahbqAYfx9Z%2FcH8o5bdTg8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:""},
+      { name: "汽车腰靠垫腰枕靠背腰垫护腰夏季车用座椅记忆棉四季头枕腰靠套装",
+      img: "https://img.alicdn.com/tfscom/i2/696071232/TB1Ku1aaval9eJjSZFzXXaITVXa_!!0-item_pic.jpg",
+      price: "58.00",
+      price1: "劵价：",
+      volume: "329",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DWagUdgSqy3EcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYPQwPElHrK7k7sVOUlFuhI74mv1VC3TW3TI8tU4S9gh3H17PAD6xvuFULfvRD2dgKTGDmntuH4VtA%3D%3D&unid=3456",
+      coupon_link:""},
+      { name: "iphone4s手机壳硅胶苹果4保护套透明新款薄外壳全包软防摔撞男女",
+      img: "https://img.alicdn.com/tfscom/i2/TB19Ih_NpXXXXcbXVXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "9.00",
+      price1: "劵价：",
+      volume: "1",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DtJgIOx%2BGy3scQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYNYQIfGtqqZVSH5%2Fd2GNrAekIawxTczLDmX72ly2oX%2FMhQwOXQToZKyxgxdTc00KD8%3D&unid=3456",
+      coupon_link:""},
+      { name: "亨奇璞竹无芯卷纸不漂白本色卫生纸家用纸巾卷筒纸24卷厕纸手纸",
+      img: "https://img.alicdn.com/tfscom/i3/3008791603/TB1QzEIlZLJ8KJjy0FnXXcFDpXa_!!0-item_pic.jpg",
+      price: "39.90",
+      price1: "劵价：满39元减10元",
+      volume: "1485",
+      coupon_total_count: "20000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DFVBVu9u6eU8cQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYODbme0LvBhhzSi3E3mPFipiC0l%2FhQZqNf5PIFJa7rrPg8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=IcLi%2B%2BF3V%2FgGQASttHIRqRr%2BV0PbOaYniHPldW9I2rfO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "【张飞_一品三国1350g】牛肉干礼盒四川特产零食送礼大礼包尊享装",
+      img: "https://img.alicdn.com/tfscom/i2/631238526/TB11R.Eh3vD8KJjy0FlXXagBFXa_!!2-item_pic.png",
+      price: "328.00",
+      price1: "劵价：满258元减10元",
+      volume: "50",
+      coupon_total_count: "50000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3D8%2BxSIwtbGAEcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYPtwIFbHlrCdvfJjyWMv90Tx9STTW1tkGzs9cUQvykXroQfFlk8gJSecSpj5qSCmbA%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=ArrbJ1rEkkk8Clx5mXPEKpeKkGEhMBldr82m6C5IO%2ByTsu%2B7tqQG7QJClA%2BEGtw3vSqfYdwW%2FAPFeipFNkv7v5Q5wfGz%2Fu%2BNVVrXKvU%2BpyQVF%2BLQAJXviHvlGh6jLO1J"},
+      { name: "中国历代古钱币 收藏纪念礼册收藏礼册 送贵宾 送朋友",
+      img: "https://img.alicdn.com/tfscom/i3/TB1GyxaKVXXXXXeXFXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "488.00",
+      price1: "劵价：满368元减10元",
+      volume: "1",
+      coupon_total_count: "10000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DgwtyOq5HZQAcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYPAsrBrZ6zCOr3X0zBW8fmipdr%2B%2BfmEvqZUHl60dnQQfQ8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=zg7FK%2BAgMaYGQASttHIRqQVcE7VSIdCURE0N2AyQ90rO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "古钱币礼品收藏册纪念册帝都长安陕西特色蓝田玉剪纸皮影邮票",
+      img: "https://img.alicdn.com/tfscom/i2/TB1HXEKKFXXXXb0XpXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "498.00",
+      price1: "劵价：满368元减10元",
+      volume: "0",
+      coupon_total_count: "10000",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3D6t8BtlL1T1ccQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYPAsrBrZ6zCOr3X0zBW8fmiXscz4tDrLr1zlj6lBkeP%2BQ8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:"https://uland.taobao.com/coupon/edetail?e=mmWEOEblivkGQASttHIRqbXzR0fOLl9%2B9hlUiGADH%2BrO4c9OcLYpXms6%2FM6qzFknN%2BMbLBFfLuyGWad%2FXFXtF79fwBwwUiql6z2a5qkF47UmuWBlXFVRhPSs4zOlZ4se"},
+      { name: "全套包邮正版畅销书籍 明朝那些事儿 第壹部 洪武大帝 当年明月 明朝那些事儿再版 1-7（中学生推荐阅读）全集全套1234567册",
+      img: "https://img.alicdn.com/tfscom/i2/TB1EZX6FVXXXXX8XXXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "137.50",
+      price1: "劵价：",
+      volume: "0",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3DiSnRWhKeD%2BkcQipKwQzePOeEDrYVVa64yK8Cckff7TXjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYOi5%2Bo3vVMSOeqQUhXHVnoEZUVq56g9w1llurvMefy5Qw8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:""},
+      { name: "南阳七年陈艾灸条蕲艾手工艾条艾柱艾叶艾绒艾草艾段批发包邮",
+      img: "https://img.alicdn.com/tfscom/i1/TB1K6UmLXXXXXa9XXXXXXXXXXXX_!!0-item_pic.jpg",
+      price: "26.00",
+      price1: "劵价：",
+      volume: "42",
+      coupon_total_count: "",
+      link:"https://s.click.taobao.com/t?e=m%3D2%26s%3D5I4%2BCUPii3QcQipKwQzePOeEDrYVVa64XoO8tOebS%2Bfjf2vlNIV67u0GlNwNKc4XF%2FSaKyaJTUbzlSpmtgz0XcqL0EafRmIYRd6DBaw2rbs3oX6UseNaI%2B%2FBas0tvb4eZz42eVlqqJT6BXppXS5x5z0BDlc5vrJjopr%2FSerwmYNFwgAXpm98xM%2BTLchpetWTWnuEvgVBYkQHC3cESXnz3w8a2SCC6KfVUSwYGlubnWs%3D&unid=3456",
+      coupon_link:""},
+   ];
+   $scope.employees = employees;
+  });
+
+        </script>
+    </body>
+</html>

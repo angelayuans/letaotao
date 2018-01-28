@@ -1,0 +1,219 @@
+<html>
+    <head>
+        <title> LeTaoTao</title>
+        <meta charset = utf-8>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+       <script type="text/javascript" src="dailyupdate.js"></script>
+      <!--<script type="text/javascript" src="dailyupdate.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="zhuzhu.css">
+    </head>
+    <body ng-app="myModule">
+        <div id="navtop" class="row">
+            <div id="lefttop" class="col-lg-8">
+                <p>亲爱的，来加粉丝分享优惠微信群
+                <img border="0" src="https://img.alicdn.com/imgextra/i1/2508158775/TB2SfmWqFXXXXb4XpXXXXXXXXXX_!!2508158775.png">392585899
+                </p>
+            </div>
+            <div id="rightlist" class="col-lg-4 rightstyle" >
+                <ul id="topright">
+                    <li class="listyle" >
+                        <p>设为首页</p>
+                    </li>
+                    <li class="listyle" >
+                        <p>加入收藏</p>
+                    </li>
+                    <li class="listyle" >
+                        <p onclick="alert("请联系我QQ")">遇到购物问题？联系我></p>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div id="headnav" class="navstyle" class="row" >
+            <div class="col-lg-5">
+                
+                    <h1 style="color:blue">乐淘淘</h1>
+                
+            </div>
+            <div class="col-lg-7">
+                <div class="col-lg-6" style="margin-top:45px">
+                <input type="text" placeholder="搜优惠券" ng-model="searchText" />
+                <button type="sumbit">搜索</button>
+
+                </div>
+                <div class="col-lg-6">
+                    <dt>
+                        <dl></dl>
+                        <dl></dl>
+                        <dl></dl>
+                    </dt>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container-fuild" id="secondnav" style="height:40px;background-color:#f00582">
+            <ul>
+                <li style="float:left;margin-left: 200px;margin-right:80px;margin-top:10px">
+                    <p style="color:white">今日上新</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p  style="color:white">领券优惠直播</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p  style="color:white">超级人气榜</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p  style="color:white">特卖精选</p>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="container" id="bodytop">
+            <div class="col-sm-2">
+                <ul id="leftmenu">
+                    <li><p>服装</p></li>
+                    <li><p>母婴</p></li>
+                    <li><p>化妆品</p></li>
+                    <li><p>居家、日用</p></li>
+                    <li><p>鞋包、配饰</p></li>                    
+                    <li><p>美食</p></li>
+                    <li><p>文体、车品</p></li>
+                    <li><p>数码、家电</p></li>      
+                </ul>
+            </div>
+             <div class="col-sm-1">
+            </div>
+            <div class="col-sm-5">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox" ng-controller="myController">
+                    
+                    <div class="item active" >
+                        <a href="{{employee.linkbuy}}">
+                        <img src="{{employees[7].img}}" alt="Chania" width="80" height="400">
+                        </a>
+                    </div>
+
+                    <div class="item" ng-repeat="employee in employees">
+                        <a href="{{employee.linkbuy}}">
+                        <img src="{{employee.img}}" alt="Chania" width="80" height="345">
+                        </a>
+                    </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>“亲亲，喜欢我们吗”</h3>
+                分享给身边朋友一起抢优惠<br>
+                超人气榜<br>
+                发现最受欢迎
+            </div>
+        </div>
+        <div class="container">
+            <h3>领券秒杀精选&nbsp&nbsp<span id="refresh">/实时更新/商家内部券</span></h3>
+        </div>
+        <div class="container" ng-controller="myController">
+            
+                <div class="col-sm-6" style="padding-left:0px;" ng-repeat="employee in employees | filter:searchText">
+                    
+                    <div class="col-sm-6">
+                        <img src="{{employee.img}}" height="272" style="max-width:272px;">
+                    </div>
+                    <div class="col-sm-6" style="padding-top:50px">
+                        <p>{{employee.name}}</p>
+                        <p>{{employee.price}}</p>
+                        <p><a href="{{employee.couponlink}}">点击此处领取优惠券</a></p>
+                        <p><a href="{{employee.linkbuy}}">点击抢购</a></p>
+                    </div>                        
+                </div>          
+        </div>
+       
+        
+        <div class="container">
+            <h3>特卖精选&nbsp&nbsp<span id="refresh">/人气款、评价好、性价比高</span></h3>
+        </div>
+        <ul class="container" ng-controller="myController" >
+            <li class="col-sm-3"   id="bord">
+                
+                    
+                        <img src="{{employees[7].img}}" alt="" height="200" >
+                        
+                        <p>{{employees[7].name}}</p>
+                        <p><a href="{{employees[7].couponlink}}">点击此处领取优惠券</a></p>
+                        <p><a href="{{employees[7].linkbuy}}">点击抢购</a></p>
+                    </li>
+                    <li class="col-sm-3"   id="bord">    
+                        <img src="{{employees[6].img}}" alt="" height="200" >                        
+                        <p>{{employees[6].name}}</p>
+                        <p><a href="{{employees[6].couponlink}}">点击此处领取优惠券</a></p>
+                        <p><a href="{{employees[6].linkbuy}}">点击抢购</a></p>
+                    </li>
+                     <li class="col-sm-3"   id="bord">   <img src="{{employees[3].img}}" alt="" height="200" >
+                        
+                        <p>{{employees[3].name}}</p>
+                        <p><a href="{{employees[3].couponlink}}">点击此处领取优惠券</a></p>
+                        <p><a href="{{employees[3].linkbuy}}">点击抢购</a></p>
+                     </li>
+                     <li class="col-sm-3"   id="bord">   <img src="{{employees[4].img}}" alt="" height="200" >
+                        
+                        <p>{{employees[4].name}}</p>
+                        <p><a href="{{employees[4].couponlink}}">点击此处领取优惠券</a></p>
+                        <p><a href="{{employees[4].linkbuy}}">点击抢购</a></p>
+                     </li>
+                        
+            </ul>    
+            <!--    <li class="col-lg-3" id="bord">
+                    
+                        <img src="http://img.alicdn.com/imgextra/i1/868178187/TB2nvv7npXXXXbQXpXXXXXXXXXX_!!868178187.jpg_290x290.jpg" alt="">
+                    
+                    <i class="fa fa-text-width" aria-hidden="true" style="color:red"></i>
+                    建浩创意桌面垃圾桶迷你小号摇盖式家
+                </li>
+                <li class="col-lg-3" id="bord">
+                    
+                        <img src="http://img.alicdn.com/imgextra/i1/868178187/TB2nvv7npXXXXbQXpXXXXXXXXXX_!!868178187.jpg_290x290.jpg" alt="">
+                    
+                    <i class="fa fa-text-width" aria-hidden="true" style="color:red"></i>
+                    建浩创意桌面垃圾桶迷你小号摇盖式家
+                </li>
+                <li class="col-lg-3" id="bord">
+                    
+                        <img src="http://img.alicdn.com/imgextra/i1/868178187/TB2nvv7npXXXXbQXpXXXXXXXXXX_!!868178187.jpg_290x290.jpg" alt="">
+                    
+                    <i class="fa fa-text-width" aria-hidden="true" style="color:red"></i>
+                    <p id="demo"></p>
+                </li>-->
+           
+                    
+                
+                
+            
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<h2>My Phonebook</h2>
+
+<input type="text" id="myInput"  placeholder="Search for names.." title="Type in a name">
+<button onclick="myFunction()">搜索</button>
+
+ <div id="myUL">
+  <p><a>包</a></p>
+   <p><a>女神</a></p>
+    <p><a>女</a></p>
+     <p><a>转笔刀</a></p>
+  </div>
+
+
+<script>
+function myFunction() {
+    var input, filter, div, p,a,  i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myUL");
+    p = div.getElementsByTagName("p");
+    for (i = 0; i < p.length; i++) {
+        a = p[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            p[i].style.display = "";
+        } else {
+            p[i].style.display = "none";
+
+        }
+    }
+}
+</script>
+
+</body>
+</html>

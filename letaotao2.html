@@ -1,0 +1,234 @@
+<html>
+    <head>
+        <title> LeTaoTao</title>
+        <meta charset = utf-8>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="jquery-3.2.1.js"></script>
+
+        <script src="angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="zhuzhu.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap.no-icons.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome.css">
+        <script type="text/javascript" src="dailyupdate4.js"></script>
+    </head>
+    <body ng-app="myModule">
+        <div id="navtop" class="row">
+            <div id="lefttop" class="col-lg-8">
+                <p>亲爱的，来加粉丝分享优惠QQ群
+                <img border="0" src="https://img.alicdn.com/imgextra/i1/2508158775/TB2SfmWqFXXXXb4XpXXXXXXXXXX_!!2508158775.png">392585899
+                </p>
+            </div>
+            <div id="rightlist" class="col-lg-4 rightstyle" >
+                <ul id="topright">
+                    <li class="listyle" >
+                        <p>设为首页</p>
+                    </li>
+                    <li class="listyle" >
+                        <p>加入收藏</p>
+                    </li>
+                    <li class="listyle" >
+                        <p onclick="alert("请联系我QQ")">遇到购物问题？联系我></p>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div id="headnav" class="navstyle row"  >
+            <div class="col-sm-5">
+                
+                    <h1 style="color:blue">乐淘淘</h1>
+                
+            </div>
+            <div class="col-sm-7">
+                <div style="margin-top:5%">
+                    <input type="text" placeholder="好宝贝 等你搜" ng-model="searchText" />
+                    <span><button type="sumbit">搜索</button></span>
+
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="container-fuild row" id="secondnav" style="height:40px;background-color:#f00582">
+            <ul style="list-style-type: none;">
+                <li style="float:left;margin-left: 200px;margin-right:80px;margin-top:10px">
+                    <p class="pp " >今日上新</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >领券优惠直播</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >超级人气榜</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >特卖精选</p>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="container" id="bodytop" > 
+            <div class="col-sm-2" style="padding:0px;">
+                <ul id="leftmenu">
+                    
+                    <li class="lili"><img src="dress1.png" class="imgsize">&nbsp;&nbsp;服装</li>
+                    
+                    <li class="lili"><img src="muying.png" class="imgsize">&nbsp;&nbsp;母婴</li>
+                    <li class="lili"><img src="kouhong.png" class="imgsize">&nbsp;&nbsp;化妆品</li>
+                    <li class="lili"><img src="shafa.png" class="imgsize">&nbsp;&nbsp;居家、日用</li>
+                    <li class="lili"><img src="gaogenxie.png" class="imgsize">&nbsp;&nbsp;鞋包、配饰</li>                    
+                    <li class="lili"><img src="meishi.png" class="imgsize">&nbsp;&nbsp;美食</li>
+                    <li class="lili"><img src="qiche.png" class="imgsize">&nbsp;&nbsp;文体、车品</li>
+                    <li class="lili"><img src="zhaoxiangji.png" class="imgsize">&nbsp;&nbsp;数码、家电</li>      
+                </ul>
+            </div>
+            <div class="col-sm-7">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox" ng-controller="myController">
+                    
+                    <div class="item active" >
+                        <a href="{{employees[7].coupon_tbk_link}}">
+                        <img src="{{employees[7].img}}" alt="Chania" >
+                        </a>
+                    </div>
+
+                    <div class="item" >
+                        <a href="{{employees[10].coupon_tbk_link}}">
+                        <img src="{{employees[10].img}}" alt="Chania" >
+                        </a>
+                    </div>
+                    <div class="item" >
+                        <a href="{{employees[8].coupon_tbk_link}}">
+                        <img src="{{employees[8].img}}" alt="Chania" >
+                        </a>
+                    </div>
+                    <div class="item" >
+                        <a href="{{employees[2].coupon_tbk_link}}">
+                        <img src="{{employees[2].img}}" alt="Chania" >
+                        </a>
+                    </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <h3>“亲亲，喜欢我们吗”</h3>
+                分享给身边朋友一起抢优惠<br>
+                超人气榜<br>
+                发现最受欢迎
+            </div>
+        </div>
+        <div class="container">
+            <h3>秒杀精选&nbsp&nbsp<span id="refresh">/实时更新/独享优惠券</span></h3>
+        </div>
+        
+        <div class="container " ng-controller="myController"  >
+                <div class="col-sm-6" style="padding-left:0px;background-color:white;" ng-repeat="employee in employees |filter:searchText track by $index " ng-if="$index<6">
+                
+                    <!-- <div  ng-if="$index<6"> -->
+                    
+                        <div >
+                            <a href="{{employee.coupon_tbk_link}}">
+                                <img class="col-sm-6" src="{{employee.img}}" style="height:250px">
+                            </a>
+                        </div>
+                        <div  style="padding-top:30px">
+                            <p class="col-sm-6" style="font-size:16px;">{{employee.title}}</p>
+                            <br><Br><br>
+                            <table>
+                                <tr>                                    
+                                    <th style="padding-left:10%;"><p class="ppred quan">券<b style="font-size:15px;">￥{{employee.coupon_price}}</b> </p></th>
+
+                                    <th style="padding-left:15%;"><p class="shopname" >店铺名称：{{employee.seller_shop_name}}</p></th>
+                                </tr>
+                            </table>
+                            <br>
+                            <p class="col-sm-6" style="font-size:12px;">优惠券总数 <span class="ppred">{{employee.coupon_total_count}}</span> 张</p>
+                            <br>                        
+                            <div class="showprice">
+                                <div class="pp" style="font-size:25px;padding-left:5%;padding-top:3%">{{employee.price - employee.coupon_price|number:'1.2'}}
+                                    <span style="font-size:13px;">券后价</span>
+                                </div>
+                                <div class="buy">
+                                    <a href="{{employee.coupon_tbk_link}}">
+                                        <p class="ppred" style="font-size:20px;padding-left:5%;padding-top:12%">去抢购<p>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>                      
+                    </div>
+                </div>        
+        </div>
+        
+        <div class="container">
+            <h3>领券优惠直播</h3>
+        </div>
+        <div class="container" ng-controller="myController">
+          <div class="col-sm-3"  ng-repeat="employee in  pagedItems[currentPage] | filter:searchText">
+            <div  class="box"  id="bord" style="background-color:white;">
+                        <a href="{{employee.coupon_tbk_link}}">    
+                            <img src="{{employee.img}}" alt="" >
+                        </a>
+                        
+                            <table>
+                                <tr>
+                                    <th><h2 class="ppred" id="demo"><span style="font-size:13px;">￥</span>{{employee.price - employee.coupon_price |number:'1.2'}}<span style="font-size:13px;">券后价</span>&nbsp;<span style="color:black"><del style="font-size:13px;">￥{{employee.price}}</del></span></h2></th>
+                              
+                                    <th><p class="ppred" style="background-color:#ffe6f2;width:50px;border-style: dotted;border-width: 1px;padding-left:5%;">券<b style="font-size:13px;">￥</b>{{employee.coupon_price}} </p></th>
+                                </tr>
+                            </table>                       
+                        <p>{{employee.title}}</p>
+                        <p>月销量<span class="ppred"> {{employee.volume_per_month}}</span></p>
+                        <br><br>
+            </div>
+            <div><br></div>
+        </div>
+        <tfoot>
+                    <td colspan="6">
+                        <div class="pagination pull-right">
+                            <ul class="listyle">
+                                <li class="disli" ng-class="{disabled: currentPage == 0}">
+                                    <a href ng-click="prevPage()">« Prev</a>
+                                </li>
+                            
+                                <li class="disli" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
+                                    ng-class="{active: n == currentPage}"
+                                ng-click="setPage()">
+                                    <a href ng-bind="n + 1">1</a>
+                                </li>
+                             
+                                <li class="disli" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+                                    <a href ng-click="nextPage()">Next »</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tfoot>
+        <script type="text/javascript">
+
+
+
+        </script>
+    </body>
+</html>

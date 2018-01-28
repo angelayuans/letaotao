@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title> LeTaoTao</title>
+        <meta charset = utf-8>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="jquery-3.2.1.js"></script>
+
+        <script src="angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="zhuzhu.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap.no-icons.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome.css">
+        <script type="text/javascript" src="dailyupdate4.js"></script>
+    </head>
+    <body ng-app="myModule">
+        <div id="navtop" class="row">
+            <div id="lefttop" class="col-lg-8">
+                <p>亲爱的，来加粉丝分享优惠QQ群
+                <img border="0" src="https://img.alicdn.com/imgextra/i1/2508158775/TB2SfmWqFXXXXb4XpXXXXXXXXXX_!!2508158775.png">392585899
+                </p>
+            </div>
+            <div id="rightlist" class="col-lg-4 rightstyle" >
+                <ul id="topright">
+                    <li class="listyle" >
+                        <p>设为首页</p>
+                    </li>
+                    <li class="listyle" >
+                        <p>加入收藏</p>
+                    </li>
+                    <li class="listyle" >
+                        <p onclick="alert("请联系我QQ")">遇到购物问题？联系我></p>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div id="headnav" class="navstyle row"  >
+            <div class="col-sm-5">
+                <a href="letaotao3.html">
+                    <h1 style="color:blue">乐淘淘</h1>
+                </a>
+            </div>
+            <div class="col-sm-7">
+                <div style="margin-top:5%">
+                    <input type="text" placeholder="好宝贝 等你搜" ng-model="searchText" />
+                    <span><button type="sumbit">搜索</button></span>
+
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="container-fuild row" id="secondnav" style="height:40px;background-color:#f00582">
+            <ul style="list-style-type: none;">
+                <li style="float:left;margin-left: 200px;margin-right:80px;margin-top:10px">
+                    <p class="pp " >今日上新</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >领券优惠直播</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >超级人气榜</p>
+                </li>
+                <li style="float:left;margin-right:80px;margin-top:10px">
+                    <p class="pp" >特卖精选</p>
+                </li>
+                  
+            </ul>
+        </div>
+        
+        <div class="container" ng-controller="myController">
+          <div class="col-sm-3"  ng-repeat="employee in  pagedItems[currentPage]   | filter:searchText" ng-if="employee.cat.includes('彩妆') ||
+          employee.cat.includes('美容')  ">
+            <div  class="box"  id="bord" style="background-color:white;">
+                        <a href="{{employee.coupon_tbk_link}}">    
+                            <img src="{{employee.img}}" alt="" >
+                        </a>
+                        
+                            <table>
+                                <tr>
+                                    <th><h2 class="ppred" id="demo"><span style="font-size:13px;">￥</span>{{employee.price - employee.coupon_price |number:'1.2'}}<span style="font-size:13px;">券后价</span>&nbsp;<span style="color:black"><del style="font-size:13px;">￥{{employee.price}}</del></span></h2></th>
+                              
+                                    <th><p class="ppred" style="background-color:#ffe6f2;width:50px;border-style: dotted;border-width: 1px;padding-left:5%;">券<b style="font-size:13px;">￥</b>{{employee.coupon_price}} </p></th>
+                                </tr>
+                            </table>                       
+                        <p>{{employee.title}}</p>
+                        <p>月销量<span class="ppred"> {{employee.volume_per_month}}</span></p>
+                        <br><br>
+            </div>
+            <div><br></div>
+        </div>
+        <tfoot>
+                    <td colspan="6">
+                        <div class="pagination pull-right">
+                            <ul class="listyle">
+                                <li class="disli" ng-class="{disabled: currentPage == 0}">
+                                    <a href ng-click="prevPage()">« Prev</a>
+                                </li>
+                            
+                                <li class="disli" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
+                                    ng-class="{active: n == currentPage}"
+                                ng-click="setPage()">
+                                    <a href ng-bind="n + 1">1</a>
+                                </li>
+                             
+                                <li class="disli" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+                                    <a href ng-click="nextPage()">Next »</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tfoot>
+        
+    </body>
+</html>
