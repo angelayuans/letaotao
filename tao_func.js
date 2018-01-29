@@ -12,7 +12,6 @@ var app = angular
 	$scope.itemsPerPage = 28;
 	$scope.pagedItems = [];
 	$scope.currentPage = 0;
-	
 
 	$scope.employees = employees;
 	var searchMatch = function (haystack, needle) {
@@ -37,19 +36,33 @@ if ($scope.sort.sortingOrder !== '') {
 }
 $scope.currentPage = 0;
 // now group by pages
-$scope.groupToPages();
+// var query;
+
+
+//create multiple queryList
+
+// for cloth   queryList="男装','女装"
+// for babay  queryList="baby"
+$scope.queryList='男装,女装';
+$scope.groupToPages($scope.queryList);
 };
 
 
 // calculate page in place
-$scope.groupToPages = function () {
+$scope.groupToPages = function (queryList) {
+	var queryList=queryList.split(',');
 	$scope.pagedItems = [];
-
-	for (var i = 0; i < $scope.filteredItems.length; i++) {
-		if (i % $scope.itemsPerPage === 0) {
-			$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
-		} else {
-			$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+	for (var i = 0, index=0; i < $scope.filteredItems.length; i++) {
+		for (var j =0;j<queryList.length;j++){
+			if($scope.filteredItems[i].cat.includes(queryList[j])){
+				if (index % $scope.itemsPerPage === 0) {
+					$scope.pagedItems[Math.floor(index / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+					index++;
+				} else {
+					$scope.pagedItems[Math.floor(index / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+					index++;
+				}
+			}
 		}
 	}
 };
@@ -84,6 +97,8 @@ $scope.nextPage = function () {
 $scope.setPage = function () {
 	$scope.currentPage = this.n;
 };
+
+
 
 
 // functions have been describe process the data for display
