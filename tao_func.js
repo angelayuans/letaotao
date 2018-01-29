@@ -23,7 +23,7 @@ var app = angular
 	};
 
 // init the filtered items
-$scsssope.search = function () {
+$scope.search = function () {
 	$scope.filteredItems = $filter('filter')($scope.employees, function (item) {
 		for(var attr in item) {
 			if (searchMatch(item[attr], $scope.query))
