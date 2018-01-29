@@ -13,7 +13,8 @@
         <link rel="stylesheet" type="text/css" href="zhuzhu.css">
         <link rel="stylesheet" type="text/css" href="bootstrap.no-icons.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome.css">
-        <script type="text/javascript" src="dailyupdate4.js"></script>
+        <script type="text/javascript" src="dailyupdate.js"></script>
+        <script type="text/javascript" src="tao_func.js"></script>
     </head>
     <body ng-app="myModule">
         <div id="navtop" class="row">
@@ -71,10 +72,8 @@
             </ul>
         </div>
         
-        <div class="container" ng-controller="myController">
-          <div class="col-sm-3"  ng-repeat="employee in  pagedItems[currentPage]   | filter:searchText" ng-if="employee.cat.includes('尿片') ||
-          employee.cat.includes('童装') ||
-          employee.cat.includes('孕妇') ">
+        <div class="container" ng-controller="myController"  ng-init="init('尿片,童装，孕妇')">
+          <div class="col-sm-3"  ng-repeat="employee in  pagedItems[currentPage] ">
             <div  class="box"  id="bord" style="background-color:white;">
                         <a href="{{employee.coupon_tbk_link}}">    
                             <img src="{{employee.img}}" alt="" >

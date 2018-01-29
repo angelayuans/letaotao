@@ -1,6 +1,9 @@
 var app = angular
 .module("myModule",[])
 .controller("myController",function($scope,$filter){
+	$scope.init = function(query){
+		$scope.groupToPages(query);
+	};
 	$scope.sort = {       
 		sortingOrder : 'id',
 		reverse : false
@@ -12,7 +15,6 @@ var app = angular
 	$scope.itemsPerPage = 28;
 	$scope.pagedItems = [];
 	$scope.currentPage = 0;
-
 	$scope.employees = employees;
 	var searchMatch = function (haystack, needle) {
 		if (!needle) {
@@ -30,6 +32,8 @@ $scope.search = function () {
 		}
 		return false;
 	});
+
+
 // take care of the sorting order
 if ($scope.sort.sortingOrder !== '') {
 	$scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sort.sortingOrder, $scope.sort.reverse);
@@ -38,33 +42,52 @@ $scope.currentPage = 0;
 // now group by pages
 // var query;
 
-
-//create multiple queryList
-
-// for cloth   queryList="男装','女装"
-// for babay  queryList="baby"
-$scope.queryList='男装,女装';
-$scope.groupToPages($scope.queryList);
+};
+$scope.searchFunc = function (foo) {
+	alert(foo);
+	$scope.groupToPages(foo);
+	$scope.$apply(function(foo) {
+		$scope.groupToPages(foo);
+	});
 };
 
 
 // calculate page in place
-$scope.groupToPages = function (queryList) {
-	var queryList=queryList.split(',');
+$scope.groupToPages = function (keywords) {
+	var queryList=[]
+	if(keywords)
+		queryList=keywords.split(',');
 	$scope.pagedItems = [];
+	var total=0;
 	for (var i = 0, index=0; i < $scope.filteredItems.length; i++) {
-		for (var j =0;j<queryList.length;j++){
-			if($scope.filteredItems[i].cat.includes(queryList[j])){
-				if (index % $scope.itemsPerPage === 0) {
-					$scope.pagedItems[Math.floor(index / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
-					index++;
-				} else {
-					$scope.pagedItems[Math.floor(index / $scope.itemsPerPage)].push($scope.filteredItems[i]);
-					index++;
+		if(queryList.length!=0){
+			for (var j =0;j<queryList.length;j++){
+				if($scope.filteredItems[i].cat.includes(queryList[j])){
+					if (index % $scope.itemsPerPage === 0) {
+						$scope.pagedItems[Math.floor(index / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+						index++;
+						total++;
+					} else {
+						$scope.pagedItems[Math.floor(index / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+						index++;
+						total++;
+					}
 				}
 			}
 		}
+		else{
+			if (i % $scope.itemsPerPage === 0) {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+			} else {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+			}
+		}
 	}
+	console.log("taotal item "+$scope.filteredItems.length);
+	console.log("page size "+$scope.pagedItems.length);
+	console.log("size each page"+$scope.pagedItems[0].length);
+	console.log("filter item "+total);
+	
 };
 
 $scope.range = function (size,start, end) {
